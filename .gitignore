@@ -1,0 +1,5 @@
+node_modules/
+
+# Sandbox/editor mounts, not real project files
+.vscode
+.claude/
