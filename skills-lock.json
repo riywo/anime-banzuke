@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "banzuke": {
+      "source": "riywo/banzuke",
+      "sourceType": "github",
+      "skillPath": "skills/banzuke/SKILL.md",
+      "computedHash": "51edc8eb04a8b74d3150dfee7695ef3c97bc9cd6b95e8a4787cef5d0e62a7faf"
+    }
+  }
+}
