@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@fontpkg/source-han-sans-jp-vf": "^2.5.2",
-    "@takumi-rs/wasm": "^2.5.4",
-    "takumi-js": "^2.5.4"
+    "@takumi-rs/wasm": "^2.9.2",
+    "takumi-js": "^2.9.2"
   }
 }
