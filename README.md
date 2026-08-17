@@ -1,3 +1,3 @@
-# アニメ番付
+# riywo のアニメ番付
 
-![アニメ番付](banzuke.png)
+![riywo のアニメ番付](banzuke.png)

@@ -90,6 +90,12 @@ const FEAT_ROW_H = 58.8; // height of one featured row. Sets the height of the w
 const LONE_ROW_H = 44; // row height given to the top ranked tier when there is no featured tier
 const MIN_RANK_UNIT = 22; // floor for one ranked row, so the right side survives a small featured tier
 const RANK_COLS = 2; // columns per ranked tier (more columns = narrower rows = easier to squash)
+// Horizontal rhythm of a numbered row: spine │←INDENT→│ rank │←GAP→│ title.
+// The rank box is sized for the widest number in the sheet but the number is set flush left, so a
+// single digit sits the same distance from the spine as a double one instead of being pushed
+// across the box toward the title.
+const RANK_INDENT = 7; // spine → rank number
+const RANK_GAP = 12; // rank number's box → title
 const TIER_WEIGHT = 1.3; // multiplier making higher ranked tiers taller (↑ makes the top stand out)
 const WALL = {
   sizes: [13, 11, 9.5], // wall font sizes (top wall first; the last one repeats if you run out)
@@ -130,13 +136,13 @@ const tierHeader = (name, count) =>
 /** One numbered row: spine, running number, title (fitSpan) */
 async function row({ item, rank, size, colW, color, stretch, last }) {
   const rankSize = Math.max(10, size * 0.5);
-  const rankW = Math.round(6 + 1.4 * rankSize);
-  const avail = colW - SPINE - rankW - 8 - PAD;
+  const rankW = Math.round(RANK_INDENT + 1.3 * rankSize);
+  const avail = colW - SPINE - rankW - RANK_GAP - PAD;
   const span = await fitT(titleOf(item), { size, avail, stretch });
   const bb = last ? "" : `border-bottom:${SEP}px solid ${T.ink};`;
   return `<div style="flex:1;display:flex;align-items:center;min-height:0;overflow:hidden;border-left:${SPINE}px solid ${color};background:${T.bg};${bb}">
-    <div style="width:${rankW}px;padding-left:6px;text-align:right;color:${T.muted};font-weight:${T.weight};font-size:${rankSize}px;line-height:1">${rank}</div>
-    <div style="flex:1;min-width:0;overflow:hidden;padding:0 ${PAD}px 0 8px;line-height:${LINE}">${span}</div>
+    <div style="width:${rankW}px;flex:none;padding-left:${RANK_INDENT}px;text-align:left;color:${T.muted};font-weight:${T.weight};font-size:${rankSize}px;line-height:1">${rank}</div>
+    <div style="flex:1;min-width:0;overflow:hidden;padding:0 ${PAD}px 0 ${RANK_GAP}px;line-height:${LINE}">${span}</div>
   </div>`;
 }
 
