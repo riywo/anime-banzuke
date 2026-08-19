@@ -22,6 +22,9 @@ export default {
     },
     {
       name: "大好き",
+      row: 1,
+      column: 1,
+      cols: 2,
       layout: "ranked",
       color: "#1b50a8",
       items: [
@@ -39,6 +42,9 @@ export default {
     },
     {
       name: "お気に入り",
+      row: 1,
+      column: 1,
+      cols: 2,
       layout: "ranked",
       color: "#f4c20d",
       items: [
@@ -66,6 +72,10 @@ export default {
     },
     {
       name: "良い",
+      row: 1,
+      column: 2,
+      size: 14,
+      cols: 3,
       layout: "wall",
       items: [
       "虚構推理",
